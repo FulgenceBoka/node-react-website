@@ -21,7 +21,7 @@ const post = {
 	findOne: async (slug, cb) => {
 		const [row] = await db.query(
 			"SELECT * FROM articles WHERE slug=?",
-			slug
+			[slug]
 		);
 
 		cb(row);
