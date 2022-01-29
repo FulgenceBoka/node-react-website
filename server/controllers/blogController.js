@@ -43,3 +43,19 @@ module.exports.postUpdate = (req, res)=>{
 }
 
 
+module.exports.postDelete = (req, res)=>{
+	const slug = req.params.slug
+	post.findOne(slug, (row) => {
+		post.findOne(slug, (row) => {
+		if(row.length===0){
+			res.send({message: 'Aucun article'});
+			return
+		}
+
+		post.delete(slug, (row) => {
+		res.send({message:"Modification en cours..", response:row})
+		})
+		
+	})
+	})
+}

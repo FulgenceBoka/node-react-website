@@ -8,7 +8,6 @@ const post = {
 	 */
 	all: async (cb) => {
 		const [rows] = await db.query("SELECT * FROM articles");
-
 		cb(rows);
 	},
 
@@ -61,7 +60,7 @@ const post = {
 	 */
 	delete: async (slug, cb) => {
 		const [row] = await db.query("DELETE FROM articles WHERE slug=?", [
-			slug,
+			[slug],
 		]);
 		cb(row);
 	},
